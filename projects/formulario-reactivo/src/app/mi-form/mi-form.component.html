@@ -1,0 +1,13 @@
+Favorite Color: <input type="text" [formControl]="miControldeFormulario" />
+<div class="container">
+  <button class="btn btn-success m-2" (click)="establecerColor('verde')">
+    Verde
+  </button>
+  <button class="btn btn-primary m-2" (click)="establecerColor('azul')">
+    Azul
+  </button>
+  <button class="btn btn-secondary m-2" (click)="establecerColor('gris')">
+    Gris
+  </button>
+  <p class="m-2 p-2">{{ miControldeFormulario.value }}</p>
+</div>
