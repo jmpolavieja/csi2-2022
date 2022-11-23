@@ -1,0 +1,10 @@
+<div class="container w-50">
+  <h2>Listado de Contactos</h2>
+  <ul class="list-group-flush">
+    <li class="list-group-item" *ngFor="let contact of contactos">
+      <a routerLink="/detail/{{contact.id}}" class="btn btn-primary w-100 m-1">
+        {{contact.first_name}} {{contact.last_name}} -- {{contact.email}}
+      </a>
+    </li>
+  </ul>
+</div>

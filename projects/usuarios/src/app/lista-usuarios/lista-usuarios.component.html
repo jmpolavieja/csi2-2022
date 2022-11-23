@@ -1,0 +1,7 @@
+<div class="container mt-3">
+  <ul class="list-group" *ngIf="listaUsuarios">
+    <li class="list-group-item" *ngFor="let usuario of listaUsuarios">
+      {{ usuario.first_name }} {{ usuario.last_name }}
+    </li>
+  </ul>
+</div>

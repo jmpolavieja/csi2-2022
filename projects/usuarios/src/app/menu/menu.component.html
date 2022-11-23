@@ -1,1 +1,21 @@
-<p>menu works!</p>
+<!-- <div class="container">
+  <ul ngbNav [activeId]="route.fragment | async" class="nav-tabs">
+    <li [ngbNavItem]="link.fragment" *ngFor="let link of links">
+      <a ngbNavLink routerLink="/detalle" [fragment]="link.fragment">{{ link.title }}</a>
+    </li>
+  </ul>
+  <router-outlet></router-outlet>
+</div> -->
+<!-- Versión vertical pills -->
+<div class="container-fluid border-bottom shadow">
+  <h1 class="text-center">Gestión de Usuarios</h1>
+</div>
+<div class="container d-flex mt-4">
+  <ul ngbNav [activeId]="route.fragment | async" class="nav-pills" orientation="vertical">
+    <li [ngbNavItem]="link.fragment" *ngFor="let link of links" class="me-2" >
+      <a ngbNavLink routerLink="/detalle" [fragment]="link.fragment">{{ link.title }}</a>
+      <a routerLink="/detalle/{{link.fragment}}">Enlace clásico</a>
+    </li>
+  </ul>
+  
+</div>

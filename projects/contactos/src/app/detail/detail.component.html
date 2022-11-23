@@ -1,0 +1,31 @@
+<div class="container">
+  <div [ngSwitch]="newContact">
+    <div *ngSwitchCase="true">
+      <p>Es nuevo: {{newContact}}</p>
+    </div>
+    <div *ngSwitchCase="false">
+      <div class="card mb-3 mt-3" style="max-width: 540px" *ngIf="contact">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="{{ contact.avatar }}"
+              class="img-fluid rounded-start h-100"
+              alt="{{ contact.first_name }}"
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">
+                {{ contact.first_name }} {{ contact.last_name }}
+              </h5>
+              <p class="card-text">{{ contact.email }}</p>
+              <button class="btn btn-primary" (click)="goBack()">Volver</button>
+              <button class="btn btn-secondary ms-2" routerLink="/editar/{{contact.id}}">Editar</button>
+              <button class="btn btn-danger ms-3" (click)="delete(contact.id)">Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
