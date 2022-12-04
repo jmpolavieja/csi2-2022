@@ -478,6 +478,395 @@
           }
         }
       }
+    },
+    "colores": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/colores",
+      "sourceRoot": "projects/colores/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/colores",
+            "index": "projects/colores/src/index.html",
+            "main": "projects/colores/src/main.ts",
+            "polyfills": "projects/colores/src/polyfills.ts",
+            "tsConfig": "projects/colores/tsconfig.app.json",
+            "assets": [
+              "projects/colores/src/favicon.ico",
+              "projects/colores/src/assets"
+            ],
+            "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "projects/colores/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/colores/src/environments/environment.ts",
+                  "with": "projects/colores/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "colores:build:production"
+            },
+            "development": {
+              "browserTarget": "colores:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "colores:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/colores/src/test.ts",
+            "polyfills": "projects/colores/src/polyfills.ts",
+            "tsConfig": "projects/colores/tsconfig.spec.json",
+            "karmaConfig": "projects/colores/karma.conf.js",
+            "assets": [
+              "projects/colores/src/favicon.ico",
+              "projects/colores/src/assets"
+            ],
+            "styles": [
+              "projects/colores/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "alumnos": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/alumnos",
+      "sourceRoot": "projects/alumnos/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/alumnos",
+            "index": "projects/alumnos/src/index.html",
+            "main": "projects/alumnos/src/main.ts",
+            "polyfills": "projects/alumnos/src/polyfills.ts",
+            "tsConfig": "projects/alumnos/tsconfig.app.json",
+            "assets": [
+              "projects/alumnos/src/favicon.ico",
+              "projects/alumnos/src/assets"
+            ],
+            "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "projects/alumnos/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/alumnos/src/environments/environment.ts",
+                  "with": "projects/alumnos/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "alumnos:build:production"
+            },
+            "development": {
+              "browserTarget": "alumnos:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "alumnos:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/alumnos/src/test.ts",
+            "polyfills": "projects/alumnos/src/polyfills.ts",
+            "tsConfig": "projects/alumnos/tsconfig.spec.json",
+            "karmaConfig": "projects/alumnos/karma.conf.js",
+            "assets": [
+              "projects/alumnos/src/favicon.ico",
+              "projects/alumnos/src/assets"
+            ],
+            "styles": [
+              "projects/alumnos/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "alumnos:build:production",
+            "firebaseProject": "empleados-dd9ea",
+            "firebaseHostingSite": "empleados-dd9ea"
+          }
+        }
+      }
+    },
+    "gesAlumnos": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ges-alumnos",
+      "sourceRoot": "projects/ges-alumnos/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ges-alumnos",
+            "index": "projects/ges-alumnos/src/index.html",
+            "main": "projects/ges-alumnos/src/main.ts",
+            "polyfills": "projects/ges-alumnos/src/polyfills.ts",
+            "tsConfig": "projects/ges-alumnos/tsconfig.app.json",
+            "assets": [
+              "projects/ges-alumnos/src/favicon.ico",
+              "projects/ges-alumnos/src/assets"
+            ],
+            "styles": [
+              "projects/ges-alumnos/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/ges-alumnos/src/environments/environment.ts",
+                  "with": "projects/ges-alumnos/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "gesAlumnos:build:production"
+            },
+            "development": {
+              "browserTarget": "gesAlumnos:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "gesAlumnos:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ges-alumnos/src/test.ts",
+            "polyfills": "projects/ges-alumnos/src/polyfills.ts",
+            "tsConfig": "projects/ges-alumnos/tsconfig.spec.json",
+            "karmaConfig": "projects/ges-alumnos/karma.conf.js",
+            "assets": [
+              "projects/ges-alumnos/src/favicon.ico",
+              "projects/ges-alumnos/src/assets"
+            ],
+            "styles": [
+              "projects/ges-alumnos/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "ges-alumnos-v2": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ges-alumnos-v2",
+      "sourceRoot": "projects/ges-alumnos-v2/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ges-alumnos-v2",
+            "index": "projects/ges-alumnos-v2/src/index.html",
+            "main": "projects/ges-alumnos-v2/src/main.ts",
+            "polyfills": "projects/ges-alumnos-v2/src/polyfills.ts",
+            "tsConfig": "projects/ges-alumnos-v2/tsconfig.app.json",
+            "assets": [
+              "projects/ges-alumnos-v2/src/favicon.ico",
+              "projects/ges-alumnos-v2/src/assets"
+            ],
+            "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "projects/ges-alumnos-v2/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/ges-alumnos-v2/src/environments/environment.ts",
+                  "with": "projects/ges-alumnos-v2/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "ges-alumnos-v2:build:production"
+            },
+            "development": {
+              "browserTarget": "ges-alumnos-v2:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ges-alumnos-v2:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ges-alumnos-v2/src/test.ts",
+            "polyfills": "projects/ges-alumnos-v2/src/polyfills.ts",
+            "tsConfig": "projects/ges-alumnos-v2/tsconfig.spec.json",
+            "karmaConfig": "projects/ges-alumnos-v2/karma.conf.js",
+            "assets": [
+              "projects/ges-alumnos-v2/src/favicon.ico",
+              "projects/ges-alumnos-v2/src/assets"
+            ],
+            "styles": [
+              "projects/ges-alumnos-v2/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }
   }
 }

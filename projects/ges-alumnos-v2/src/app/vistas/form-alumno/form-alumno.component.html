@@ -1,0 +1,17 @@
+<form class="container" [formGroup]="alumnoForm" (ngSubmit)="updateAlumno(alumnoForm.value)">
+  <div class="row">
+    <div class="col-6 m-auto">
+      <label for="idAlumno" class="form-label">Alumno Id</label>
+      <input id="idAlumno" type="text" class="form-control" formControlName="idAlumno">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input id="nombre" type="text" class="form-control" formControlName="nombre">
+      <label for="apellidos" class="form-label">Apellidos</label>
+      <input id="apellidos" type="text" class="form-control" formControlName="apellidos">
+      <label for="curso" class="form-label">Curso</label>
+      <input id="curso" type="text" class="form-control" formControlName="curso">
+      <button class="btn btn-primary mt-3" [disabled]="!nuevoAlumno || !alumnoForm.valid">Save</button>
+      <button class="btn btn-secondary mt-3 ms-3" [disabled]="nuevoAlumno || !alumnoForm.valid">Update</button>
+    </div>
+
+  </div>
+</form>

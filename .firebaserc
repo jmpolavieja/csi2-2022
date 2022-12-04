@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "empleados-dd9ea": {
+      "hosting": {
+        "alumnos": [
+          "empleados-dd9ea"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "empleados-dd9ea"
+  }
+}

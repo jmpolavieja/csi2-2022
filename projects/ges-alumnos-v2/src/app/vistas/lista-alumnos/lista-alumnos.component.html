@@ -1,0 +1,5 @@
+<div class="container list-group p-3">
+  <a *ngFor="let alumno of alumnos" class="list-group-item"  routerLink="/editAlumno/{{alumno.id}}">
+    {{ alumno.data.nombre }} {{ alumno.data.apellidos }}
+  </a>
+</div>
