@@ -2,17 +2,22 @@
   <h1 class="text-center mb-2">Alumnos</h1>
   <div class="row">
     <div class="col-4">
-
-      <form [formGroup]="newAlumnoForm" (ngSubmit)="nuevoAlumno(newAlumnoForm.value)">
-        <label for="name" class="label-control">Nombre:</label>
-        <input type="text"
-        id="name" name="name"
-        class="form-control mb-1"
-        formControlName="name">
-        <label for="curso" class="label-control">Curso:</label>
-        <input type="text"
-        class="form-control mb-1"
-        formControlName="id">
+      <form
+        [formGroup]="newAlumnoForm"
+        (ngSubmit)="nuevoAlumno()"
+      >
+        <div class="form-floating mb-3">
+          <input type="text" id="nombre" class="form-control" formControlName="nombre">
+          <label for="nombre" class="label-control">Nombre</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" formControlName="apellidos">
+          <label for="apellidos" class="label-control">Apellidos</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" formControlName="curso">
+          <label for="curso" class="label-control">Curso:</label>
+        </div>
         <input type="submit" class="btn btn-success" value="Agregar">
       </form>
     </div>
@@ -20,12 +25,11 @@
       <div class="contanier-fluid">
         <div class="card" *ngFor="let alumno of alumnos">
           <div class="card-body">
-            <p>{{alumno.data.name}}</p>
-            <p>{{alumno.data.curso}}</p>
+            <p>{{ alumno.nombre }} {{alumno.apellidos}}</p>
+            <p>{{ alumno.curso | uppercase }}</p>
             <button class="btn btn-primary me-3">Editar</button>
-          <button class="btn btn-danger">Eliminar</button>
+            <button class="btn btn-danger">Eliminar</button>
           </div>
-
         </div>
       </div>
     </div>

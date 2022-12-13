@@ -1,0 +1,14 @@
+
+<div class="card w-50" *ngIf="mascota">
+  <div class="card-body">
+    <h5 class="card-title">{{ mascota.data.nombre }}</h5>
+    <p class="card-text">{{ mascota.data.nombrePropietario }}</p>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{ mascota.data.raza }}</li>
+      <li class="list-group-item">{{ mascota.data.edad }}</li>
+      <li class="list-group-item">{{ mascota.data.especie }}</li>
+      <li class="list-group-item">{{ mascota.data.sexo }}</li>
+    </ul>
+    <a routerLink="/edit/{{mascota.id}}" class="btn btn-primary">Editar</a>
+  </div>
+</div>

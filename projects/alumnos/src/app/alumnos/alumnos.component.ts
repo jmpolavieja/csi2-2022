@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlumnosService } from '../services/alumnos.service';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Alumno } from '../interfaces/alumno';
 
 @Component({
   selector: 'app-alumnos',
@@ -8,13 +9,13 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./alumnos.component.css'],
 })
 export class AlumnosComponent implements OnInit {
-  public alumnos: any[] = [];
+  public alumnos: Alumno[] = [];
   public documentId = '1';
   public currentStatus = 1;
   public newAlumnoForm = this.fbs.group({
-    name: ['', Validators.required],
+    nombre: ['', Validators.required],
     curso: ['', Validators.required],
-    id: [''],
+    apellidos: [''],
   });
 
   constructor(
@@ -26,50 +27,57 @@ export class AlumnosComponent implements OnInit {
     this.alumnosService.getAlumnos().subscribe((alumnosSnapshot) => {
       this.alumnos = [];
       alumnosSnapshot.forEach((alumnoData: any) => {
+        this.documentId = alumnoData.payload.doc.id;
         this.alumnos.push({
-          id: alumnoData.payload.doc.id,
-          data: alumnoData.payload.doc.data(),
+          id: this.documentId,
+          ...alumnoData.payload.doc.data(),
         });
       });
+      console.log(this.alumnos);
     });
   }
 
-  public nuevoAlumno(form: any, documentId = this.documentId) {
+  public nuevoAlumno(documentId = this.documentId) {
     console.log(`Status: ${this.currentStatus}`);
     if (this.currentStatus == 1) {
-      let data = { name: form.name, curso: form.curso };
-      this.alumnosService.createAlumno(data).then(
-        () => {
-          console.log('Documento creado correctamente!');
-          this.vaciaForm();
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
+      this.creaAlumno();
     } else {
-      let data = {
-        name: form.name,
-        curso: form.curso,
-      };
-      this.alumnosService.updateAlumno(documentId, data).then(
-        () => {
-          this.currentStatus = 1;
-          this.vaciaForm();
-          console.log('DOcumento editado correctamente.');
-        },
-        (error) => {
-          console.error(error);
-        }
-      );
+      this.updateAlumno(documentId);
     }
+  }
+
+  creaAlumno() {
+    let data: any = this.newAlumnoForm.value;
+    this.alumnosService.createAlumno(data).then(
+      () => {
+        console.log('Documento creado correctamente!');
+        this.vaciaForm();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  updateAlumno(documentId: string) {
+    let data = this.newAlumnoForm.value;
+    this.alumnosService.updateAlumno(documentId, data).then(
+      () => {
+        this.currentStatus = 1;
+        this.vaciaForm();
+        console.log('DOcumento editado correctamente.');
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 
   private vaciaForm() {
     this.newAlumnoForm.setValue({
-      name: '',
+      nombre: '',
       curso: '',
-      id: '',
+      apellidos: '',
     });
   }
 }

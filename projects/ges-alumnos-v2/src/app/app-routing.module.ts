@@ -5,6 +5,7 @@ import { ListaAlumnosComponent } from './vistas/lista-alumnos/lista-alumnos.comp
 
 const routes: Routes = [
   { path: '', component: ListaAlumnosComponent },
+  { path: 'alumnos/:curso', component: ListaAlumnosComponent },
   { path: 'editAlumno/:documentId', component: FormAlumnoComponent},
   { path: 'creaAlumno', component: FormAlumnoComponent}
 ];

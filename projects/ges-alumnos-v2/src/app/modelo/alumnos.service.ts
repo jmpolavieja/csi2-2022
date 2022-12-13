@@ -18,6 +18,10 @@ export class AlumnosService {
     return this.firebase.collection(this.miColeccion).doc(id).snapshotChanges();
   }
 
+  getCurso(curso: string) {
+    return this.firebase.collection(this.miColeccion, ref => ref.where('curso','==',curso)).snapshotChanges();
+  }
+
   // Leer todos los alumnos
   getAll() {
     return this.firebase.collection(this.miColeccion).snapshotChanges();

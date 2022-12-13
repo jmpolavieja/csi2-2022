@@ -1,0 +1,39 @@
+<form [formGroup]="datosMascota" class="form-group container w-50 mt-3">
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="nombre" formControlName="nombre" />
+    <label for="nombre">Nombre</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="especie" formControlName="especie" />
+    <label for="especie">Especie</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="raza" formControlName="raza" />
+    <label for="raza">Raza</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input type="number" class="form-control" id="edad" formControlName="edad" />
+    <label for="edad">Edad</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input
+      type="text" class="form-control"
+      id="nombrePropietario"
+      formControlName="nombrePropietario"
+    />
+    <label for="nombrePropietario">Propietario</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="sexo" formControlName="sexo" />
+    <label for="sexo">Sexo</label>
+  </div>
+  <button
+    class="btn btn-primary m-2"
+    (click)="guardar()"
+    [disabled]="!datosMascota.valid"
+  >
+    Guardar
+  </button>
+
+  <button class="btn btn-danger m-2" (click)="cancel()">Volver</button>
+</form>
